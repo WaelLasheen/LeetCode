@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int numberOfSubmatrices(vector<vector<char>>& grid) {
+        int counter = 0;
+        int r = grid.size(), c = grid[0].size();
+        vector<vector<pair<int, int>>> fr(r, vector<pair<int, int>>(c, {0, 0}));
+        
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (grid[i][j] == 'X') {
+                    fr[i][j].first++;
+                } else if (grid[i][j] == 'Y') {
+                    fr[i][j].second++;
+                }
+                if (i > 0) {
+                    fr[i][j].first += fr[i - 1][j].first;
+                    fr[i][j].second += fr[i - 1][j].second;
+                }
+                if (j > 0) {
+                    fr[i][j].first += fr[i][j - 1].first;
+                    fr[i][j].second += fr[i][j - 1].second;
+                }
+                if (i > 0 && j > 0) {
+                    fr[i][j].first -= fr[i - 1][j - 1].first;
+                    fr[i][j].second -= fr[i - 1][j - 1].second;
+                }
+                
+                if (fr[i][j].first == fr[i][j].second && fr[i][j].first) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
+};
