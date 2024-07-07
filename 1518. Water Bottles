@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        int res=numBottles;
+        while(numBottles >= numExchange){
+            int reuse = numBottles/numExchange;
+            res += reuse;
+            numBottles = numBottles%numExchange + reuse; 
+        }
+        return res;
+    }
+};
