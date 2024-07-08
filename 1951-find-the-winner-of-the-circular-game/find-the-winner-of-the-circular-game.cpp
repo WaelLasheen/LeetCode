@@ -1,13 +1,16 @@
 class Solution {
 public:
     int findTheWinner(int n, int k) {
-        vector<int> arr(n);
-        for(int i=0;i<n;i++) arr[i]=i+1;
-        int i=0;
-        while(arr.size() >1){
-            i = (i+k-1)% arr.size();
-            arr.erase(arr.begin()+i);
+        queue<int> circle;
+        for(int i=0;i<n;i++) circle.push(i+1);
+        while(circle.size()>1){
+            int loop=k-1;
+            while(loop--){
+                circle.push(circle.front());
+                circle.pop();
+            }
+            circle.pop();
         }
-        return arr[0];
+        return circle.front();
     }
 };
