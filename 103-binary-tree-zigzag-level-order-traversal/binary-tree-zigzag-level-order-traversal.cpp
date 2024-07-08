@@ -11,23 +11,28 @@
  */
 class Solution {
 public:
-    map<int,vector<int>> level;
-    void dfs(TreeNode* r,int l){
-        if(!r) return;
-        level[l].push_back(r->val);
-        dfs(r->left,l+1);
-        dfs(r->right,l+1);
-    }
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-        dfs(root,0);
+        if(!root) return {};
         vector<vector<int>> res;
-        bool rev=false;
-        for(auto i:level){
-            if(rev){
-                reverse(i.second.begin(),i.second.end());
+        queue<TreeNode*> q;
+        q.push(root);
+        int i=0;
+        while(q.size()){
+            vector<int> inner;
+            int s=q.size();
+            while(s--){
+                inner.push_back(q.front()->val);
+                if(q.front()->left){
+                    q.push(q.front()->left);
+                }
+                if(q.front()->right){
+                    q.push(q.front()->right);
+                }
+                q.pop();
             }
-            res.push_back(i.second);
-            rev =!rev;
+            if(i&1) reverse(inner.begin(),inner.end());
+            res.push_back(inner);
+            i++;
         }
         return res;
     }
