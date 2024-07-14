@@ -1,13 +1,13 @@
-Sure! Here is a sample README for your Leetcode solutions repository:
-
----
-
 # Leetcode Solutions
 
-![Leetcode Badge](https://img.shields.io/badge/Leetcode-000000?style=flat-square&logo=Leetcode&logoColor=white)
-![Solutions Badge](https://img.shields.io/badge/Solutions-100+-brightgreen?style=flat-square)
-![Languages Badge](https://img.shields.io/badge/Languages-Python%20%7C%20C++%20%7C%20Java%20%7C%20JavaScript-blue?style=flat-square)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square)
+<p align="center">
+  <marquee behavior="scroll" direction="left">
+    <img src="https://img.shields.io/badge/Leetcode-000000?style=flat-square&logo=Leetcode&logoColor=white" alt="Leetcode Badge">
+    <img src="https://img.shields.io/badge/Solutions-100+-brightgreen?style=flat-square" alt="Solutions Badge">
+    <img src="https://img.shields.io/badge/Languages-Python%20%7C%20C++%20%7C%20Java%20%7C%20JavaScript-blue?style=flat-square" alt="Languages Badge">
+    <img src="https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square" alt="Commit Activity">
+  </marquee>
+</p>
 
 Welcome to my Leetcode solutions repository! 
 
@@ -32,10 +32,20 @@ The repository is organized by problem type and difficulty level. Each solution 
 
 ## Badges
 
-![Leetcode Badge](https://img.shields.io/badge/Leetcode-000000?style=flat-square&logo=Leetcode&logoColor=white)
-![Solutions Badge](https://img.shields.io/badge/Solutions-100+-brightgreen?style=flat-square)
-![Languages Badge](https://img.shields.io/badge/Languages-Python%20%7C%20C++%20%7C%20Java%20%7C%20JavaScript-blue?style=flat-square)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square)
+<p align="center">
+  <marquee behavior="scroll" direction="left">
+    <img src="https://img.shields.io/badge/Leetcode-000000?style=flat-square&logo=Leetcode&logoColor=white" alt="Leetcode Badge">
+    <img src="https://img.shields.io/badge/Solutions-100+-brightgreen?style=flat-square" alt="Solutions Badge">
+    <img src="https://img.shields.io/badge/Languages-Python%20%7C%20C++%20%7C%20Java%20%7C%20JavaScript-blue?style=flat-square" alt="Languages Badge">
+    <img src="https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square" alt="Commit Activity">
+  </marquee>
+</p>
+
+## Contribution
+
+Feel free to fork this repository, raise issues, or contribute by adding your own solutions. 
+
+Happy coding!
 
 ## Contribution
 
