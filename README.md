@@ -53,6 +53,5 @@ Feel free to fork this repository, raise issues, or contribute by adding your ow
 
 Happy coding!
 
----
 
-You can customize it further by adding more details or changing the sections as per your preferences.
+
