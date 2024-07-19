@@ -13,7 +13,7 @@ public:
     
     vector<string> out;
 
-    void backtrack(string& digits,int index,string curr){
+    void backtrack(string& digits,int index,string& curr){
         if(index >= digits.size()){
             if(curr.size())
                 out.push_back(curr);
@@ -21,12 +21,14 @@ public:
         }
         
         for(char i:pk[digits[index]]){
-            backtrack(digits,index+1,curr+i);
+            string n = curr+i;
+            backtrack(digits,index+1,n);
         }
     }
 
     vector<string> letterCombinations(string digits) {
-        backtrack(digits,0,"");
+        string curr="";
+        backtrack(digits,0,curr);
         return out;
     }
 };
