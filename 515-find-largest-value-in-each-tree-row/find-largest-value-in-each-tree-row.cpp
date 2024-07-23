@@ -11,25 +11,34 @@
  */
 class Solution {
 public:
-    map<int,int> mir;   // max in row
-
-    void dfs(TreeNode* root ,int i){
-        if(!root) return;
-
-        if(mir.find(i) != mir.end()){
-            mir[i] = max(mir[i],root->val);
-        }else{
-            mir[i]=root->val;
-        }
-
-        dfs(root->left ,i+1);
-        dfs(root->right ,i+1);
+    void empty(queue<TreeNode*>& q){
+        queue<TreeNode*> x;
+        swap(q,x);
     }
 
     vector<int> largestValues(TreeNode* root) {
-        dfs(root ,0);
-        vector<int> res(mir.size());
-        for(auto n:mir) res[n.first] = n.second;
+        if(!root) return {};
+        queue<TreeNode*> q,inner;
+        vector<int> res;
+        q.push(root);
+        while(q.size()){
+            int v = INT_MIN;
+            while(q.size()){
+                v=max(v,q.front()->val);
+                if(q.front()->left){
+                    inner.push(q.front()->left);
+                }
+                if(q.front()->right){
+                    inner.push(q.front()->right);
+                }
+                q.pop();
+            }
+            res.push_back(v);
+            q=inner;
+            empty(inner);
+            // while(inner.size()) inner.pop();
+        }
+
         return res;
     }
 };
