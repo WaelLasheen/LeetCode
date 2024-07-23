@@ -5,38 +5,30 @@
  *     TreeNode *left;
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x) : val(x, left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x, left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    void empty(queue<TreeNode*>& q){
-        queue<TreeNode*> x;
-        swap(q,x);
-    }
-
     vector<int> largestValues(TreeNode* root) {
-        if(!root) return {};
-        queue<TreeNode*> q,inner;
+        if (!root) return {};
+        
+        queue<TreeNode*> q;
         vector<int> res;
+        
         q.push(root);
-        while(q.size()){
+        while (!q.empty()) {
             int v = INT_MIN;
-            while(q.size()){
-                v=max(v,q.front()->val);
-                if(q.front()->left){
-                    inner.push(q.front()->left);
-                }
-                if(q.front()->right){
-                    inner.push(q.front()->right);
-                }
+            int size = q.size(); // Get the current level size
+            for (int i = 0; i < size; ++i) {
+                TreeNode* node = q.front();
                 q.pop();
+                v = max(v, node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
             }
             res.push_back(v);
-            q=inner;
-            empty(inner);
-            // while(inner.size()) inner.pop();
         }
 
         return res;
