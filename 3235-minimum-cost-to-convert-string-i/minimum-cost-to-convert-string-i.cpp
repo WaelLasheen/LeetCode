@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <queue>
+#include <unordered_map>
 #include <climits>
-#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -11,49 +12,61 @@ public:
         if (n != target.size()) {
             return -1;
         }
-        
-        // Initialize the cost matrix
-        vector<vector<long long>> minCost(26, vector<long long>(26, LLONG_MAX));
-        
-        // Set the cost to transform a character to itself to 0
-        for (int i = 0; i < 26; ++i) {
-            minCost[i][i] = 0;
-        }
-        
-        // Fill in the given transformation costs
+
+        // Create a graph representation of the transformations
+        unordered_map<char, vector<pair<char, int>>> graph;
         for (int i = 0; i < original.size(); ++i) {
-            int from = original[i] - 'a';
-            int to = changed[i] - 'a';
-            minCost[from][to] = min(minCost[from][to], (long long)cost[i]);
+            graph[original[i]].emplace_back(changed[i], cost[i]);
         }
-        
-        // Floyd-Warshall algorithm to find the minimum cost between all pairs of characters
-        for (int k = 0; k < 26; ++k) {
-            for (int i = 0; i < 26; ++i) {
-                for (int j = 0; j < 26; ++j) {
-                    if (minCost[i][k] != LLONG_MAX && minCost[k][j] != LLONG_MAX) {
-                        minCost[i][j] = min(minCost[i][j], minCost[i][k] + minCost[k][j]);
+
+        // Function to use Dijkstra's algorithm to find the minimum cost to transform 'start' to all other characters
+        auto dijkstra = [&](char start) {
+            vector<long long> dist(26, LLONG_MAX);
+            dist[start - 'a'] = 0;
+            priority_queue<pair<long long, char>, vector<pair<long long, char>>, greater<>> pq;
+            pq.emplace(0, start);
+
+            while (!pq.empty()) {
+                auto [currentCost, currentChar] = pq.top();
+                pq.pop();
+
+                if (currentCost > dist[currentChar - 'a']) {
+                    continue;
+                }
+
+                for (auto& [nextChar, nextCost] : graph[currentChar]) {
+                    long long newCost = currentCost + nextCost;
+                    if (newCost < dist[nextChar - 'a']) {
+                        dist[nextChar - 'a'] = newCost;
+                        pq.emplace(newCost, nextChar);
                     }
                 }
             }
+
+            return dist;
+        };
+
+        // Precompute the minimum cost to transform each character to every other character
+        vector<vector<long long>> minCost(26);
+        for (char c = 'a'; c <= 'z'; ++c) {
+            minCost[c - 'a'] = dijkstra(c);
         }
-        
+
         long long totalCost = 0;
-        
+
         // Calculate the total cost to transform source to target
         for (int i = 0; i < n; ++i) {
             if (source[i] == target[i]) {
                 continue;
             }
-            
-            int from = source[i] - 'a';
-            int to = target[i] - 'a';
-            if (minCost[from][to] == LLONG_MAX) {
+
+            long long cost = minCost[source[i] - 'a'][target[i] - 'a'];
+            if (cost == LLONG_MAX) {
                 return -1; // Transformation not possible
             }
-            totalCost += minCost[from][to];
+            totalCost += cost;
         }
-        
+
         return totalCost;
     }
 };
