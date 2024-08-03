@@ -1,9 +1,10 @@
 class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
-        sort(target.begin() , target.end());
-        sort(arr.begin() , arr.end());
+        map<int,int> frt ,fra;
+        for(int i:target) frt[i]++;
+        for(int i:arr) fra[i]++;
 
-        return target == arr;
+        return frt==fra;
     }
 };
