@@ -21,8 +21,8 @@ public:
                         fr[grid[i+a][b+j]]++;
                     }
                 }
-
-                if (sumr == sumc && sumr[0] == sumr[1] && sumr[1] == sumr[2] && sumr[0] == d1 && sumr[0] == d2 && fr.size() == 9) {
+                bool x = max({d1,d2,sumr[0],sumr[1],sumr[2]}) == min({d1,d2,sumr[0],sumr[1],sumr[2]});
+                if (sumr == sumc && x && fr.size() == 9) {
                     for(int n=1;n<10;n++){
                         if(!fr[n]){
                             res--;
