@@ -3,7 +3,6 @@ public:
     int numMagicSquaresInside(vector<vector<int>>& grid) {
         int res=0;
         int row = grid.size() ,col=grid[0].size();
-        if(row <3 || col <3) return res;
 
         for(int i=0;i<row-2;i++){
             for(int j=0;j<col-2;j++){
