@@ -1,6 +1,3 @@
-#include <queue>
-#include <vector>
-
 class KthLargest {
 public:
     int k;
