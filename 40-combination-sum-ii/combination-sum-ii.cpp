@@ -3,7 +3,7 @@ public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(),candidates.end());
         set<pair<int,vector<int>>> con;
-        vector<int> em;
+        vector<int> em; // just empty array you don't need it.
         con.insert({0,em});
         for(int i:candidates){
             set<pair<int,vector<int>>> inner = con;
@@ -12,6 +12,8 @@ public:
                 if(j.first+i <= target){
                     arr.push_back(i);
                     inner.insert({j.first+i,arr});
+                }else{
+                    break;
                 }
             }
             con = inner;
