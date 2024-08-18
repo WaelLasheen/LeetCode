@@ -25,7 +25,7 @@ public:
                 if(c-- ==0) break;
             }
         }
-        vector<ull> arr(ugly.begin(),ugly.end());
-        return arr[n-1];
+
+        return *next(ugly.begin(), n - 1);
     }
 };
