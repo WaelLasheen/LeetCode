@@ -1,31 +1,22 @@
-#define ull unsigned long long
-
 class Solution {
 public:
     int nthUglyNumber(int n) {
-        set<unsigned long long> ugly={1,2,3,5};
-        int t=8;
-        while(t--){
-            int c=ugly.size();
-            ull fac=5;
-            for(ull i:ugly){
-                ugly.insert(i*fac);
-                if(c-- ==0) break;
+        vector<int> nums={1};
+        int i2=0 ,i3=0, i5=0;
+        for(int i=1;i<n;i++){
+            int num= min({nums[i2]*2 ,nums[i3]*3 ,nums[i5]*5});
+            nums.push_back(num);
+            if(num == nums[i2]*2){
+                i2++;
             }
-            c=ugly.size();
-            fac=3;
-            for(ull i:ugly){
-                ugly.insert(i*fac);
-                if(c-- ==0) break;
+            if(num == nums[i3]*3){
+                i3++;
             }
-            c=ugly.size();
-            fac=2;
-            for(ull i:ugly){
-                ugly.insert(i*fac);
-                if(c-- ==0) break;
+            if(num == nums[i5]*5){
+                i5++;
             }
         }
 
-        return *next(ugly.begin(), n - 1);
+        return nums[n-1];
     }
 };
