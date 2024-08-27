@@ -15,12 +15,18 @@ public:
             double prob = pq.top().first;
             int cur = pq.top().second;
             pq.pop();
-            visit.insert(cur);
 
             if(cur == end){
                 return prob;
             }
 
+            // to skip unnecessary loop
+            if (visit.find(cur) != visit.end()) {
+                continue;
+            }
+
+            visit.insert(cur);
+            
             for(pair<int,double> node : adj[cur]){
                 if(visit.find(node.first) == visit.end()){
                     pq.push({prob * node.second , node.first});
