@@ -19,10 +19,22 @@ public:
                             island=false;
                         }
 
-                        if(row-1 > -1 && grid2[row-1][col]) {next.push({row-1 ,col}); grid2[row-1][col]=0;}
-                        if(row+1 <  r && grid2[row+1][col]) {next.push({row+1 ,col}); grid2[row+1][col]=0;}
-                        if(col-1 > -1 && grid2[row][col-1]) {next.push({row ,col-1}); grid2[row][col-1]=0;}
-                        if(col+1 <  c && grid2[row][col+1]) {next.push({row ,col+1}); grid2[row][col+1]=0;}
+                        if(row-1 > -1 && grid2[row-1][col]){
+                            next.push({row-1 ,col}); 
+                            grid2[row-1][col]=0;
+                        }
+                        if(row+1 <  r && grid2[row+1][col]){
+                            next.push({row+1 ,col}); 
+                            grid2[row+1][col]=0;
+                        }
+                        if(col-1 > -1 && grid2[row][col-1]){
+                            next.push({row ,col-1}); 
+                            grid2[row][col-1]=0;
+                        }
+                        if(col+1 <  c && grid2[row][col+1]){
+                            next.push({row ,col+1});
+                            grid2[row][col+1]=0;
+                        }
                     }
 
                     if(island){
