@@ -21,5 +21,3 @@ public:
         return ind;
     }
 };
-
-// 3 7 8 10   25
