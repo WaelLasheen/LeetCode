@@ -4,7 +4,7 @@ public:
         if(!k) return false;
         unordered_map<int,int> num_it;
         for(int i=0;i<nums.size();i++){
-            if(num_it.find(nums[i]) != num_it.end() && i-num_it[nums[i]] <= k){
+            if(num_it.count(nums[i]) && i-num_it[nums[i]] <= k){
                 return true;
             }
 
