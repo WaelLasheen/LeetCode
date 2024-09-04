@@ -20,13 +20,12 @@ public:
                 for (int step = 0; step < cmd; ++step) {
                     int nextX = x + dirX[direction];
                     int nextY = y + dirY[direction];
-                    if (obstacleSet.find({nextX, nextY}) == obstacleSet.end()) {
-                        x = nextX;
-                        y = nextY;
-                        maxDist = max(maxDist, x * x + y * y);
-                    } else {
-                        break; // Stop if there's an obstacle
+                    if (obstacleSet.find({nextX, nextY}) != obstacleSet.end()) {
+                        break;
                     }
+                    x = nextX;
+                    y = nextY;
+                    maxDist = max(maxDist, x * x + y * y);
                 }
             }
         }
