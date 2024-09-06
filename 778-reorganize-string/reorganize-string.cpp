@@ -20,24 +20,22 @@ public:
         vector<string> subs(max_fr ,string(1,pq.top().second));
         pq.pop();
         
-        while(pq.size()){
-            int i=0;
-            int t=pq.top().first;
-            char c=pq.top().second;
-            while(true){
-                subs[i] += c;
-                t--;
-                if(!t){
-                    pq.pop();
-                    t=pq.top().first;
-                    c=pq.top().second;
-                    if(!(pq.size())){
-                        break;
-                    }
+        int i=0;
+        int t=pq.top().first;
+        char c=pq.top().second;
+        while(true){
+            subs[i] += c;
+            t--;
+            if(!t){
+                pq.pop();
+                t=pq.top().first;
+                c=pq.top().second;
+                if(!(pq.size())){
+                    break;
                 }
-
-                i = (i+1)%max_fr;
             }
+
+            i = (i+1)%max_fr;
         }
 
         string res="";
