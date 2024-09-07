@@ -6,7 +6,7 @@ public:
         for(int i=0;i<s;i++){
             // primary diagonal
             res +=mat[i][i];
-            // secondary  diagonal
+            // secondary  diagonal 
             res +=mat[i][s-i-1];
         }
 
