@@ -25,7 +25,7 @@ public:
         int i=0;
         while(rem--){
             res[i++]=it;
-            for(int i=0;i<len;i++){
+            for(int j=0;j<len;j++){
                 it = it->next;
             }
             ListNode* next =it->next;
@@ -35,7 +35,7 @@ public:
 
         while(it){
             res[i++]=it;
-            for(int i=0;i<len-1;i++){
+            for(int j=0;j<len-1;j++){
                 it = it->next;
             }
             ListNode* next =it->next;
