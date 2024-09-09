@@ -4,12 +4,9 @@ public:
 
     void backtrack(vector<int>& nums ,vector<int>& sub ,int it){
         if(it >= nums.size()){
-            vector<int> con=sub;
-            sort(sub.begin(),sub.end());
-            if(find(subSets.begin(),subSets.end(),sub) == subSets.end()){
+            if(!count(subSets.begin(),subSets.end(),sub)){
                 subSets.push_back(sub);
             }
-            sub = con;
             return;
         }
 
@@ -19,6 +16,7 @@ public:
         sub.pop_back();       
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
         vector<int> sub;
         backtrack(nums ,sub ,0);
 
