@@ -1,11 +1,18 @@
 class Solution {
 public:
     bool isMonotonic(vector<int>& nums) {
-        vector<int> copy=nums;
-        sort(copy.begin(),copy.end());
-        if(copy==nums) return true;
-        sort(copy.rbegin(),copy.rend());
-        if(copy==nums) return true;
+        int pos=0 ,neg=0;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i-1]-nums[i] >0){
+                pos++;
+            }else if(nums[i-1]-nums[i] <0){
+                neg++;
+            }
+        }
+
+        if((!neg && !pos) || (!neg && pos) || (neg && !pos)){
+            return true;
+        }
         return false;
     }
 };
