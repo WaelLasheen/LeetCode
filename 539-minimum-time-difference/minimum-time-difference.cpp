@@ -10,8 +10,13 @@ public:
             t[i]=h+m;
         }
         int res=min(t[s-1]-t[0] ,24*60-(t[s-1]-t[0]));
+        // if res is 0 no need to continue
+        if(!res) return res;
+
         for(int i=1;i<s;i++){
             res = min({res ,t[i]-t[i-1] ,24*60-(t[i]-t[i-1])});
+            // if res is 0 no need to continue
+            if(!res) return res;
         }
 
         return res;
