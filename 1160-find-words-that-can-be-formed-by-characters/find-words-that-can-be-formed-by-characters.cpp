@@ -8,9 +8,7 @@ public:
             map<char,int> wfr;
             for(const char c:i){
                 wfr[c]++;
-            }
-            for(auto m:wfr){
-                if(m.second > fr[m.first]){
+                if(wfr[c] > fr[c]){
                     res -=i.size();
                     break;
                 }
