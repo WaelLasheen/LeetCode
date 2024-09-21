@@ -1,16 +1,23 @@
 class Solution {
 public:
+    vector<int> res;
+    void solve(int n ,int num){
+        if(res.size() == n){
+            return;
+        }
+
+        for(int i=0;i<=9;i++){
+            if(num*10+i && num*10+i <=n){
+                res.push_back(num*10+i);
+                if(num*100+i <=n){
+                    solve(n,num*10+i);
+                }
+            }
+        }
+    }
+
     vector<int> lexicalOrder(int n) {
-        set<string> nums;
-        for(int i=1;i<=n;i++){
-            nums.insert(to_string(i));
-        }
-
-        vector<int> res;
-        for(string i:nums){
-            res.push_back(stoi(i));
-        }
-
+        solve(n ,0);
         return res;
     }
 };
