@@ -4,7 +4,6 @@ public:
         if(n==1) return 1;
         map<int,int> fr ,t;
         for(auto i:trust){
-            fr[i[0]]++;
             fr[i[1]]++;
             t [i[0]]++;
         }
