@@ -8,11 +8,8 @@ public:
     bool book(int start, int end) {
         // sort(cal.begin(),cal.end());
         for(int i=0;i<cal.size();i++){
-            if(end > cal[i].first){
-                if(end <= cal[i].second) return false;
-                else{
-                    if(start < cal[i].second) return false;
-                }
+            if(start < cal[i].second && end > cal[i].first){
+                return false;
             }
         }
         cal.push_back({start,end});
