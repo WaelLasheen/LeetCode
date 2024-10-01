@@ -1,15 +1,15 @@
 class Solution {
 public:
     bool canArrange(vector<int>& arr, int k) {
-        map<int,int> mp;
+        vector<int> fr(k,0);
         for(int i:arr){
-            mp[(k+i%k)%k]++;
+            fr[(k+i%k)%k]++;
         }
 
-        if(mp[0]&1) return false;
+        if(fr[0]&1) return false;
 
         for(int i=1;i<=k/2;i++){
-            if(mp[i] != mp[k-i]){
+            if(fr[i] != fr[k-i]){
                 return false;
             }
         }
