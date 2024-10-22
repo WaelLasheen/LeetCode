@@ -13,22 +13,23 @@
  */
 class Solution {
 public:
-    vector<ll> level;
-    void DFS(TreeNode* root ,int i){
-        if(!root){
-            return;
-        }
-        if(i>= level.size()){
-            level.push_back(root->val);
-        }
-        else{
-            level[i] +=root->val;
-        }
-        DFS(root->left,i+1);
-        DFS(root->right,i+1);
-    }
     long long kthLargestLevelSum(TreeNode* root, int k) {
-        DFS(root,0);
+        vector<ll> level;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(q.size()){
+            int len=q.size();
+            ll sum=0;
+            while(len--){
+                TreeNode* node=q.front();
+                q.pop();
+                sum +=node->val;
+                if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
+            }
+            level.push_back(sum);
+        }
+        
         sort(level.rbegin(),level.rend());
 
         return k>level.size()? -1:level[k-1];
