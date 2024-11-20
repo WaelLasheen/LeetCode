@@ -14,7 +14,7 @@ public:
             }
         }
 
-        if(abc[0] <k || abc[1] <k || abc[2] <k){
+        if(f){
             return -1;
         }
 
@@ -23,7 +23,6 @@ public:
         vector<int> fr(3,0);   // freq of chars that token from right
         while(r>=0){
             fr[s[r]-'a']++;
-
             while(l>=0 && abc[s[l]-'a']-1 + fr[s[l]-'a'] >=k){
                 abc[s[l]-'a']--;
                 l--;
