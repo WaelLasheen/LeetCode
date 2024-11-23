@@ -11,20 +11,17 @@ public:
                     continue;
                 }
                 else if(box[i][j]=='#'){
-                    res[it][i] = '#';
+                    res[it][r-i-1] = '#';
                     it--;
                 }
                 else{   // box ceil is *
                     it= j;
-                    res[it][i] = '*';
+                    res[it][r-i-1] = '*';
                     it--;
                 }
             }
         }
-        for(int i=0;i<c;i++){
-            reverse(res[i].begin(),res[i].end());
-        }
-
+        
         return res;
     }
 };
