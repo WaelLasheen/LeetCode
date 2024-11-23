@@ -34,6 +34,12 @@ The repository is organized by problem type and difficulty level. Each solution 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square)
 
 <p>
+  <img src="https://github.com/user-attachments/assets/a99dfd12-ab5b-417b-b66f-1b8bcb523847" alt="2024" width="80">
+  <img src="https://github.com/user-attachments/assets/a1d067fd-9cd3-4318-99f1-fef4bf706001" alt="2024-10" width="80">
+  <img src="https://github.com/user-attachments/assets/affb5b80-dc13-46a0-9e00-042c87fd976c" alt="2024-09" width="80">
+  <img src="https://github.com/user-attachments/assets/2732491d-9e15-4982-b211-0a2d3c20bbbd" alt="2024-200" width="80">
+  <img src="https://github.com/user-attachments/assets/5c51dbf8-b413-43c8-91f8-6b22c969aa87" alt="2024-08" width="80">
+  <img src="https://github.com/user-attachments/assets/dc9f7471-85f1-4634-9551-99c5132b7592" alt="2024-07" width="80">
   <img src="https://github.com/user-attachments/assets/9c4af7b3-303e-4268-9bbf-4cc93fd41ea6" alt="Top_100_Liked" width="80">
   <img src="https://github.com/user-attachments/assets/c2e3c274-9a12-4f40-a0a5-c4de59d90959" alt="2024-06" width="80">
   <img src="https://github.com/user-attachments/assets/6d2a9bfa-b6fe-4a09-9126-aaa3c685f725" alt="2024-100-new" width="80">
@@ -44,6 +50,7 @@ The repository is organized by problem type and difficulty level. Each solution 
   <img src="https://github.com/user-attachments/assets/a5517b66-00d8-4273-a233-d75e26d92ac9" alt="2024-03" width="80">
   <img src="https://github.com/user-attachments/assets/bbdce928-b0a7-4a4d-afc9-cab3c5011a51" alt="2023-50" width="80">
 </p>
+
 
 
 
