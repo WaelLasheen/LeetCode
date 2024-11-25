@@ -22,7 +22,7 @@ public:
         }
 
         BoardState state(board, x, y, 0);
-        vector<vector<int>> end = {{1,2,3},{4,5,0}};
+        string end = "123450";
         queue<BoardState> bfs;
         bfs.push(state);
         set<string> v;
@@ -32,7 +32,7 @@ public:
             BoardState curr = bfs.front();
             bfs.pop();
 
-            if(curr.board==end){
+            if(boardToString(curr.board)==end){
                 return curr.level;
             }
 
@@ -88,7 +88,7 @@ public:
         string res;
         for (const auto& row : board) {
             for (int num : row) {
-                res += to_string(num) + ",";
+                res += to_string(num);
             }
         }
         return res;
