@@ -36,6 +36,8 @@ public:
                 return curr.level;
             }
 
+            // you can use loop to make code shorter, but I use if to each case to make it easy to understoud
+
             // go up
             if(curr.x !=0){
                 vector<vector<int>> arr = curr.board;
