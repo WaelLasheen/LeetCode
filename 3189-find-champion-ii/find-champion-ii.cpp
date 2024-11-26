@@ -10,13 +10,16 @@ public:
         }
 
         vector<int> champions;
-        
+
         for(int i=0;i<n;i++){
             if(income[i]==0){
                 champions.push_back(i);
+                if(champions.size() >1){
+                    return -1;
+                }
             }
         }
 
-        return champions.size() >1 ? -1 : champions[0];
+        return champions[0];
     }
 };
