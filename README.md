@@ -34,6 +34,8 @@ The repository is organized by problem type and difficulty level. Each solution 
 ![Commit Activity](https://img.shields.io/github/commit-activity/m/<your-username>/leetcode-solutions?style=flat-square)
 
 <p>
+  <img src="https://github.com/user-attachments/assets/6c832065-bfcf-483d-bf6c-e9441976d752" alt="365" width="80">
+  <img src="https://github.com/user-attachments/assets/15f1da6c-25a2-49d1-9182-0b5fe2a1790f" alt="2024-11" width="80">
   <img src="https://github.com/user-attachments/assets/a99dfd12-ab5b-417b-b66f-1b8bcb523847" alt="2024" width="80">
   <img src="https://github.com/user-attachments/assets/a1d067fd-9cd3-4318-99f1-fef4bf706001" alt="2024-10" width="80">
   <img src="https://github.com/user-attachments/assets/affb5b80-dc13-46a0-9e00-042c87fd976c" alt="2024-09" width="80">
