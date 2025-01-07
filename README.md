@@ -62,9 +62,11 @@ The repository is organized by problem type and difficulty level. Each solution 
 
 <p><strong>Study Plan Medals</strong></p>
 <p>
+  <img src="https://github.com/user-attachments/assets/ac1e4d30-ed33-492c-9bbd-37dce5247d85" width="80">
   <img src="https://github.com/user-attachments/assets/9c4af7b3-303e-4268-9bbf-4cc93fd41ea6" alt="Top_100_Liked" width="80">
   <img src="https://github.com/user-attachments/assets/487774d5-4b38-4f8d-93ba-af3a302f6d89" alt="LeetCode_75" width="80">
 </p>
+
 
 
 
