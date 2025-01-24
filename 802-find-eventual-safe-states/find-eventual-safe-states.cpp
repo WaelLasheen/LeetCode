@@ -12,6 +12,7 @@ public:
 
         return res;
     }
+    
 private:
     bool dfs(vector<vector<int>>& graph ,vector<int>& safe ,int i){
         if(safe[i]!=-1){
