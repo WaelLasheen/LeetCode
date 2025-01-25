@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> lexicographicallySmallestArray(vector<int>& nums, int limit) {
-        vector<queue<int>> mp(nums.size());     // level : [element]
+        map<int,queue<int>> mp;     // level : [element]
         unordered_map<int,int> lv;    // element: level
         vector<int> copy(nums.begin(),nums.end());
         sort(copy.begin(),copy.end());
