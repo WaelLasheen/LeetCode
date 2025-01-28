@@ -27,6 +27,10 @@ public:
                 // roll dice
                 for(int i=1;i<=6;i++){
                     num = q.front()+i;
+                    if(num> n*n){
+                        break;
+                    }
+                    
                     if(mp[num]){
                         num = mp[num];
                     }
@@ -35,7 +39,7 @@ public:
                         return l;
                     }
 
-                    if(num < n*n && !v[num]){
+                    if(!v[num]){
                         q.push(num);
                         v[num]=true;
                     }
@@ -44,22 +48,8 @@ public:
             }
 
             l++;
-            if(l > n*n){
-                // there is no need to continue as there is no solution
-                break;
-            }
         }
 
         return -1;
     }
 };
-
-
-//  1 1-1
-//  1 1 1
-// -1 1 1
-
-// [[-1,1,2,-1],
-// [2,13,15,-1],
-// [-1,10,-1,-1],
-// [-1,6,2,8]]
