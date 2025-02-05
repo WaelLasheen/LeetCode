@@ -10,6 +10,8 @@ public:
                 mp[s2[p2]]--;
             }
 
+            if(ct >2) return false;
+
             p1++;
             p2++;
         }
@@ -19,7 +21,7 @@ public:
                 return false;
             }
         }
-        
+
         return ct<=2;
     }
 };
