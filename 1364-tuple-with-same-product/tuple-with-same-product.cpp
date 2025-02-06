@@ -1,7 +1,7 @@
 class Solution {
 public:
     int tupleSameProduct(vector<int>& nums) {
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         int s=nums.size() ,res=0;
         for(int i=0;i<s;i++){
             for(int j=i+1;j<s;j++){
