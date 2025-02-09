@@ -12,6 +12,7 @@ public:
         for(long i=0;i<s;i++){
             mp[nums[i]-i]++;
         }
+        
         ll gp=0;    // good pairs
         for(auto i:mp){
             ll n=i.second;
