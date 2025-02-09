@@ -6,13 +6,14 @@ public:
         // count good pair: j-i == nums[j]-nums[i]
         //  |--> i == nums[i]+shift
         //  |--> same shift is good pair
+        fastIO();   // make code faster
 
         unordered_map<long,int> mp;
         ll s = nums.size();
         for(long i=0;i<s;i++){
             mp[nums[i]-i]++;
         }
-        
+
         ll gp=0;    // good pairs
         for(auto i:mp){
             ll n=i.second;
@@ -20,5 +21,12 @@ public:
         }
 
         return s*(s-1)/2 - gp;
+    }
+
+private:
+    void fastIO(void) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
     }
 };
