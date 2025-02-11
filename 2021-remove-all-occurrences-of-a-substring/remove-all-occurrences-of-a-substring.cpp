@@ -1,32 +1,24 @@
 class Solution {
 public:
     string removeOccurrences(string s, string part) {
-        stack<char> box;
-        reverse(part.begin(),part.end());
+        string res="";  // use it as stack and answer at same time
         for(char i:s){
-            box.push(i);
-            if(box.size() >=  part.size()){
-                string sub="";
-                int k=part.size();
-                while(k--){
-                    sub += box.top();
-                    box.pop();
-                }
-
-                if(sub != part){
-                    for(int j=part.size()-1;j>-1;j--){
-                        box.push(sub[j]);
+            res +=i;
+            if(res.size() >= part.size()){
+                int l=res.size()-1 ,r=part.size()-1;
+                bool del=true;
+                while(r >-1){
+                    if(res[l--] != part[r--]){
+                        del =false;
+                        break;
                     }
+                }
+                int k=part.size();
+                while(del && k--){
+                    res.pop_back();
                 }
             }
         }
-
-        string res="";
-        while(box.size()){
-            res +=box.top();
-            box.pop();
-        }
-        reverse(res.begin(),res.end());
 
         return res;
     }
