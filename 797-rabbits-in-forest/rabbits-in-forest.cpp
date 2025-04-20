@@ -12,7 +12,7 @@ public:
                 res +=fr;
             }
             else{
-                res += ceil(fr/(1.0*(k+1))) * (k+1);
+                res += (fr+k)/(k+1) * (k+1);
             }
         }
 
