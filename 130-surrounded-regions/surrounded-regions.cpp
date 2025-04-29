@@ -23,11 +23,11 @@ public:
                         if(!outOfRange(r,c,row+d[0],col+d[1]) && board[row+d[0]][col+d[1]]=='O' && !v[row+d[0]][col+d[1]]){
                             v[row+d[0]][col+d[1]] =true;
                             q.push({row+d[0] ,col+d[1]});
-                            memory.push({row+d[0] ,col+d[1]});
+                            if(change) memory.push({row+d[0] ,col+d[1]});
                         }
                     }
-                    
-                    if(atEdge(r,c,row,col)){
+
+                    if(change && atEdge(r,c,row,col)){
                         change=false;
                     }
                 }
