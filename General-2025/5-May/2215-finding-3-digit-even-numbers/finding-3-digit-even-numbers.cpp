@@ -1,34 +1,31 @@
 class Solution {
 public:
     vector<int> findEvenNumbers(vector<int>& digits) {
-        set<int> res;
-        int n=digits.size();
-        for(int i=0;i<n-2;i++){
-            for(int j=i+1;j<n-1;j++){
-                for(int k=j+1;k<n;k++){
-                    if(!(digits[k]&1) && digits[i]){
-                        res.insert(digits[i]*100+digits[j]*10+digits[k]);
-                    }
-                    if(!(digits[j]&1) && digits[i]){
-                        res.insert(digits[i]*100+digits[k]*10+digits[j]);
-                    }
-                    if(!(digits[k]&1) && digits[j]){
-                        res.insert(digits[j]*100+digits[i]*10+digits[k]);
-                    }
-                    if(!(digits[i]&1) && digits[j]){
-                        res.insert(digits[j]*100+digits[k]*10+digits[i]);
-                    }
-                    if(!(digits[j]&1) && digits[k]){
-                        res.insert(digits[k]*100+digits[i]*10+digits[j]);
-                    }
-                    if(!(digits[i]&1) && digits[k]){
-                        res.insert(digits[k]*100+digits[j]*10+digits[i]);
-                    }
+        vector<int> res;
+        vector<int> mp(10,0);
+        for(int i:digits){
+            mp[i]++;
+        }
+
+        for(int i=1e2;i<1e3;i+=2){
+            unordered_map<int,int> mp2;
+            int n=i;
+            while(n){
+                mp2[n%10]++;
+                n /=10;
+            }
+            bool add=true;
+            for(auto [k,v]:mp2){
+                if(mp[k]<v){
+                    add=false;
                 }
+            }
+
+            if(add){
+                res.push_back(i);
             }
         }
 
-        vector<int> arr(res.begin(),res.end());
-        return arr;
+        return res;
     }
 };
