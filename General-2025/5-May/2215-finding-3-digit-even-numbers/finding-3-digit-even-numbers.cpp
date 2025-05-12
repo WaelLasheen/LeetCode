@@ -8,16 +8,17 @@ public:
         }
 
         for(int i=1e2;i<1e3;i+=2){
-            unordered_map<int,int> mp2;
+            vector<int> mp2(10,0);
             int n=i;
             while(n){
                 mp2[n%10]++;
                 n /=10;
             }
             bool add=true;
-            for(auto [k,v]:mp2){
-                if(mp[k]<v){
+            for(int k=0;k<10;k++){
+                if(mp[k]< mp2[k]){
                     add=false;
+                    break;
                 }
             }
 
