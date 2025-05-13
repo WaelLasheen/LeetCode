@@ -1,31 +1,25 @@
-#define ll long long
 class Solution {
 public:
     int lengthAfterTransformations(string s, int t) {
-        const ll mod = 1e9 + 7;
-        ll freq[26] = {0};
-
-        for (char c : s) freq[c - 'a']++;
-
-        while (t--) {
-            ll nextFreq[26] = {0};
-            for (int i = 0; i < 26; i++) {
-                if (i == 25) {  
-                    nextFreq[0] = (nextFreq[0] + freq[i]) % mod;  
-                    nextFreq[1] = (nextFreq[1] + freq[i]) % mod;  
-                } else {  
-                    nextFreq[i + 1] = (nextFreq[i + 1] + freq[i]) % mod;
-                }
-            }
-            for (int i = 0; i < 26; i++) {
-                freq[i] = nextFreq[i];
-            }
+        const int mod= 1e9+7;
+        int res=s.size();
+        vector<int> mp(27,0);
+        for(char i:s){
+            mp[i-'a']++;
         }
 
-        ll res = 0;
-        for (int i = 0; i < 26; i++) {
-            res = (res + freq[i]) % mod;
+        while(t--){
+            for(int i=25;i>-1;i--){
+                mp[i+1]=mp[i]%mod;
+            }
+            if(mp[26]){
+                // mp[0] = mp[26]%mod;
+                mp[1] = (mp[1] + mp[26])%mod;
+                res = (res + mp[26])%mod;
+            }
+            mp[0] = mp[26]%mod;
         }
-        return res;
+
+        return res%mod;
     }
 };
