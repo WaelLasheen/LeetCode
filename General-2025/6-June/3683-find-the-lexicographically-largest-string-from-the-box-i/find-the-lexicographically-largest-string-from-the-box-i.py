@@ -6,11 +6,7 @@ class Solution:
         n = len(word)- numFriends+1
         res= word[:n]
         for i in range(1,len(word)):
-            for j in range(min(len(res),len(word)-i)):
-                if res[j] < word[i+j]:
-                    res =word[i:i+n]
-                    break
-                elif res[j] > word[i+j]:
-                    break
+            if res < word[i:i+n]:
+                res =word[i:i+n]
         
         return res
