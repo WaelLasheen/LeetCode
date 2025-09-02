@@ -10,9 +10,11 @@ public:
 
         for(int i=0;i<s;i++){
             for(int j=i+1;j<s;j++){
-                bool isValid= points[i][1] >= points[j][1];
-                for(int k=0;isValid && k<s;k++){
-                    if(k!=i && k !=j && points[k][0] >= points[i][0] && points[k][0]<= points[j][0] && points[k][1] >= min(points[i][1] , points[j][1]) && points[k][1] <= max(points[i][1] , points[j][1])){
+                int y1= points[i][1] ,y2= points[j][1];
+                bool isValid=  y1>= y2;
+                for(int k=i+1;isValid && k<j;k++){
+                    int y3= points[k][1];
+                    if(y3 >= y2 && y3 <= y1){
                         isValid = false;
                     }
                 }
