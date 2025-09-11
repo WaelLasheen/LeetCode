@@ -1,22 +1,17 @@
 class Solution {
 public:
     string sortVowels(string s) {
-        map<char,int> mp;
-        unordered_set<char> vowels={'A','E','I','O','U','a','e','i','o','u'};
+        vector<char> mp;
+        unordered_set<char> vowels = {'A','E','I','O','U','a','e','i','o','u'};
         for(char i:s){
             if(vowels.count(i)){
-                mp[i]++;
+                mp.push_back(i);
             }
         }
-
-        for(int i=0;i<s.size();i++){
+        sort(mp.begin(),mp.end());
+        for(int i=0,j=0;i<s.size();i++){
             if(vowels.count(s[i])){
-                char v= mp.begin()->first;
-                s[i]=v;
-                mp[v]--;
-                if(!mp[v]){
-                    mp.erase(v);
-                }
+                s[i]=mp[j++];
             }
         }
 
