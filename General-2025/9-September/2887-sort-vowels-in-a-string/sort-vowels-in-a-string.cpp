@@ -2,7 +2,7 @@ class Solution {
 public:
     string sortVowels(string s) {
         map<char,int> mp;
-        set<char> vowels={'a','e','i','o','u','A','E','I','O','U'};
+        unordered_set<char> vowels={'A','E','I','O','U','a','e','i','o','u'};
         for(char i:s){
             if(vowels.count(i)){
                 mp[i]++;
