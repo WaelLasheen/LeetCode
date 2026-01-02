@@ -12,6 +12,7 @@ public:
                 digits[i]=0;
             }
         }
+        
         if(c==1){
             digits.resize(s+1,0);
             digits[0]=1;
