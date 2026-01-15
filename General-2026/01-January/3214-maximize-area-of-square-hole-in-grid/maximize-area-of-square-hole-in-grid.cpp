@@ -1,36 +1,26 @@
 class Solution {
 public:
-    // int maxSide(vector<int>& arr){}
+    int maxSide(vector<int>& arr){
+        sort(arr.begin(),arr.end());
+        int curr=1 ,next=2 ,mx=1;
+        for(int i:arr){
+            if(i==next){
+                next++;
+            } else{
+                mx= max(mx , next-curr);
+                curr= i-1;
+                next= i+1;
+            }
+        }
+
+        return max(mx , next-curr);
+    }
 
     int maximizeSquareHoleArea(int n, int m, vector<int>& hBars, vector<int>& vBars) {
-        sort(hBars.begin(),hBars.end());
-        int curr=1 ,next=2 ,mxa=1;
-        for(int i:hBars){
-            if(i==next){
-                next++;
-            } else{
-                mxa= max(mxa , next-curr);
-                curr= i-1;
-                next= i+1;
-            }
-        }
-        mxa= max(mxa , next-curr);
+        int sideA = maxSide(hBars);
+        int sideB = maxSide(vBars);
 
-        sort(vBars.begin(),vBars.end());
-        curr=1 ,next=2 ;
-        int mxb=1;
-        for(int i:vBars){
-            if(i==next){
-                next++;
-            } else{
-                mxb= max(mxb , next-curr);
-                curr= i-1;
-                next= i+1;
-            }
-        }
-        mxb= max(mxb , next-curr);
-
-        int mn = min(mxa ,mxb);
+        int mn = min(sideA ,sideB);
         return mn*mn;
     }
 };
