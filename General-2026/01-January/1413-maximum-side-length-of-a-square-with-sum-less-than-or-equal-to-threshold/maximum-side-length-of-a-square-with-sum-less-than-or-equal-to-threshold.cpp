@@ -13,7 +13,10 @@ public:
 
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                for(int k=min(m-i ,n-j)-1 ;k>-1;k--){
+                int l=0 ,r=min(m-i ,n-j)-1;
+                while(l<=r){
+                    int k= (l+r)/2;
+
                     int sum = mat[i+k][j+k];
                     if(i) sum -= mat[i-1][j+k];
                     if(j) sum -= mat[i+k][j-1];
@@ -21,6 +24,9 @@ public:
 
                     if(sum <= threshold){
                         res = max(res,k+1);
+                        l= k+1;
+                    } else{
+                        r= k-1;
                     }
                 }                
             }
