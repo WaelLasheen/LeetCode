@@ -3,7 +3,7 @@ public:
     int minCost(int n, vector<vector<int>>& edges) {
         vector<int> cost(n,INT_MAX);
         cost[0] =0;
-        map<int,vector<pair<int,int>>> adj;
+        vector<vector<pair<int,int>>> adj(n);
         for(vector<int> n:edges){
             adj[n[0]].push_back({n[2],n[1]});
             adj[n[1]].push_back({2*n[2],n[0]});
