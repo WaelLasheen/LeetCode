@@ -28,6 +28,6 @@ public:
             }
         }
 
-        return cost[n-1]==INT_MAX? -1:cost[n-1];
+        return -1;
     }
 };
