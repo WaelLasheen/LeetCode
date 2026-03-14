@@ -1,24 +1,34 @@
 class Solution {
 public:
     string getHappyString(int n, int k) {
+        string res = "";
         if(k > (3<<(n-1))){
-            return "";
+            return res;
         }
-
-        queue<string> q;
-        q.push("");
-        while(k){
-            string curr=q.front();
-            q.pop();
-            for(char i='a';i<'d';i++){
-                if(curr.empty() || curr.back()!=i){
-                    q.push(curr+i);
-                    if(curr.size()+1 ==n) k--;
-                }
-                if(!k) break;
+        // we use zero index and he use one index so we sub 1 from k to be zero index
+        k--;    
+        int numOfElemnt = 1<<(n-1);
+        int c= k/numOfElemnt;
+        res += (c + 'a');
+        int l= numOfElemnt * c ,r= numOfElemnt * (c+1)-1;
+        while(l<=r && res.size()<n){
+            int mid = (l+r)/2;
+            if(k <= mid){
+                r = mid-1;
+                res += getChar(res.back(),true);
+            }
+            else if(k > mid){
+                l = mid+1;
+                res += getChar(res.back(),false);
             }
         }
+        return res;
+    }
 
-        return q.back();
+    char getChar(char c ,bool isMin){
+        if(c=='a') return isMin? 'b':'c';
+        if(c=='b') return isMin? 'a':'c';
+        // 'c' case
+        return isMin? 'a':'b';
     }
 };
