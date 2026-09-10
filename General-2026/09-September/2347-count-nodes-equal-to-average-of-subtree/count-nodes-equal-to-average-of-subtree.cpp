@@ -12,10 +12,11 @@
 class Solution {
 public:
     map<TreeNode*,vector<int>> mp; // node: [subtree_sum,n]
-    int res=0;
-    void dfs(TreeNode* root){
-        if(root->left) dfs(root->left);
-        if(root->right) dfs(root->right);
+
+    int averageOfSubtree(TreeNode* root) {
+        int l=0 ,r=0;
+        if(root->left) l= averageOfSubtree(root->left);
+        if(root->right) r= averageOfSubtree(root->right);
         mp[root] = {root->val,1};
         if(root->left){ 
             mp[root][0] += mp[root->left][0];
@@ -26,11 +27,6 @@ public:
             mp[root][1] += mp[root->right][1];
         }
         int avg = mp[root][0]/mp[root][1];
-        if(avg == root->val) res++;
-    }
-
-    int averageOfSubtree(TreeNode* root) {
-        dfs(root);
-        return res;
+        return l+r + (avg == root->val);
     }
 };
