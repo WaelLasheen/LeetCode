@@ -9,6 +9,7 @@ public:
         }
 
         if(rPref[0] < x) return -1;
+        if(rPref[0] == x) return len;
 
         int res= getCount(lPref,x);
         for(int i=len-1,t=1; i>-1; i--,t++){
