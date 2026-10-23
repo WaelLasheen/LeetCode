@@ -5,13 +5,10 @@ public:
         int res = -1;
         for(int i=0;i<len;i++){
             if(nums[i] !=i){
-                int n1 = nums[i];
-                int n2 = nums[n1];
-                swap(nums[i],nums[n1]);
                 if(res ==-1){
-                    res = n1 & n2;
+                    res = nums[i];
                 } else{
-                    res = res & n1 & n2;
+                    res = res & nums[i];
                 }
             }
         }
